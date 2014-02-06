@@ -10,6 +10,7 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+	$(".friend h3").click(friendListener);
 }
 
 function anagrammedName(name) {
@@ -40,7 +41,14 @@ function anagrammedName(name) {
 		return "Gear Chopper";
 	}
 	else {
-		console.log(name + " not known for anagramming.");
+		console.log(name + " not knowns for anagramming.");
 		return name;
 	}
+}
+
+function friendListener(e) {
+	e.preventDefault();
+	var name = $(this).text();
+	var newName = anagrammedName(name);
+	$(this).text(newName);
 }
